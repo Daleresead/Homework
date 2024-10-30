@@ -12,9 +12,9 @@ final class ViewController: UIViewController {
     private let imageView = UIImageView()
     private let imageNotification = UIView()
     private let titleLabel = UILabel()
-    private let maintext = UILabel()
-    private let reviewButton = UIButton()
-    private let laterButton = UIButton()
+    //private let maintext = UILabel()
+    //private let reviewButton = UIButton()
+    //private let laterButton = UIButton()
     
     
 
@@ -29,13 +29,11 @@ final class ViewController: UIViewController {
     func embedViews() {
         view.addSubview(imageView)
         imageView.addSubview(imageNotification)
+        imageNotification.addSubview(titleLabel)
         
-        [
+        /*[
             titleLabel,
-            maintext,
-            reviewButton,
-            laterButton
-        ].forEach { imageNotification.addSubview($0) }
+        ].forEach { imageNotification.addSubview($0) }*/
     }
     
     func setupLayout(){
@@ -45,10 +43,13 @@ final class ViewController: UIViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            imageNotification.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 280),
+            imageNotification.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 260),
             imageNotification.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 34),
             imageNotification.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -34),
-            imageNotification.heightAnchor.constraint(equalToConstant: 402)
+            imageNotification.heightAnchor.constraint(equalToConstant: 402),
+            
+            titleLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 320),
+            titleLabel.leadingAnchor.constraint(equalTo: imageNotification.leadingAnchor, constant: 24),
         ])
     }
     
@@ -62,12 +63,15 @@ final class ViewController: UIViewController {
         
         imageNotification.backgroundColor = .white
         imageNotification.layer.cornerRadius = 20
+        imageNotification.layer.opacity = 0.7
         imageNotification.clipsToBounds = true
         imageNotification.translatesAutoresizingMaskIntoConstraints = false
         
         titleLabel.text = "Мы ценим ваше мнение!"
         titleLabel.font = .systemFont(ofSize: 24, weight: .semibold)
         titleLabel.textColor = .black
+        titleLabel.numberOfLines = 0
+        imageNotification.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupBehavior() {}
