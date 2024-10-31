@@ -34,6 +34,7 @@ final class ViewController: UIViewController {
             titleLabel,
             mainText,
             reviewButton,
+            laterButton
         ].forEach { imageNotification.addSubview($0) }
     }
     
@@ -45,8 +46,8 @@ final class ViewController: UIViewController {
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             imageNotification.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 260),
-            imageNotification.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 34),
-            imageNotification.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -34),
+            imageNotification.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 24),
+            imageNotification.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -24),
             imageNotification.heightAnchor.constraint(equalToConstant: 402),
             
             titleLabel.topAnchor.constraint(equalTo: imageNotification.topAnchor, constant: 40),
@@ -55,8 +56,9 @@ final class ViewController: UIViewController {
             mainText.topAnchor.constraint(equalTo: imageNotification.topAnchor, constant: 82),
             mainText.leadingAnchor.constraint(equalTo: imageNotification.leadingAnchor, constant: 16),
             mainText.trailingAnchor.constraint(equalTo: imageNotification.trailingAnchor, constant: -16),
+            mainText.heightAnchor.constraint(equalToConstant: 150),
             
-            reviewButton.topAnchor.constraint(equalTo: mainText.bottomAnchor, constant: 36),
+            reviewButton.topAnchor.constraint(equalTo: mainText.bottomAnchor, constant: 30),
             reviewButton.leadingAnchor.constraint(equalTo: imageNotification.leadingAnchor, constant: 16),
             reviewButton.trailingAnchor.constraint(equalTo: imageNotification.trailingAnchor, constant: -16),
             reviewButton.heightAnchor.constraint(equalToConstant: 54),
@@ -91,7 +93,7 @@ final class ViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         mainText.text = "Спасибо, что пользуетесь нашим приложением. Нам очень важно знать ваше мнение, чтобы продолжать улучшать качество и функциональность сервиса. Поделитесь своими впечатлениями или сообщите о проблемах, с которыми вы столкнулись. Ваши отзывы помогают нам становиться лучше каждый день!"
-        mainText.font = .systemFont(ofSize: 16, weight: .regular)
+        mainText.font = .systemFont(ofSize: 15, weight: .regular)
         mainText.textColor = .black
         mainText.textAlignment = .center
         mainText.numberOfLines = 0
@@ -104,8 +106,7 @@ final class ViewController: UIViewController {
         reviewButton.translatesAutoresizingMaskIntoConstraints = false
         
         laterButton.setTitle("Напомнить позже", for: .normal)
-        laterButton.setTitleColor(.blue, for: .normal)
-        laterButton.backgroundColor = .white
+        laterButton.setTitleColor(.systemBlue, for: .normal)
         laterButton.translatesAutoresizingMaskIntoConstraints = false
         
     }
